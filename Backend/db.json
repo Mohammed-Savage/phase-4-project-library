@@ -98,7 +98,7 @@
             "outstanding_balance": 7.50
         }
     ],
-    "transaction":[
+    "transactions":[
         {
             "id": "1",
             "isbn": "9781484242216",
