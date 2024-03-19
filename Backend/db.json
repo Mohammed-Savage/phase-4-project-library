@@ -92,7 +92,7 @@
 
     "members":[
         {
-            "id": "1",
+            "id": 1,
             "name": "Tiffany",
             "email": "tiffanyman19@gmail.com",
             "outstanding_balance": 7.50
@@ -100,9 +100,9 @@
     ],
     "transactions":[
         {
-            "id": "1",
+            "id": 1,
             "isbn": "9781484242216",
-            "email": "tiffanyman19@gmail.com",
+            "member_id": 1,
             "fee_per_day": 2.50,
             "burrowed_on": "Feb. 5",
             "returned_on": "Feb. 8",
