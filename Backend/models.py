@@ -29,9 +29,22 @@ class Member(db.Model, SerializerMixin):
     serialize_rules = ['-transactions.member']
     transactions= db.relationshipp("Transaction", back_populates= "member")
 
+    @validates('name')
+    def validate_title(self, key, name):
+        for char in name:
+            if not (("A" <= char and char <= "Z") or ("a" <= char and char <= "z") or (char == " ")):
+              raise AttributeError('Invalid Name')
+            return name
+
 class Books(db.Model, SerializerMixin):
     isbn = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String, nullable = False)
     author = db.Column(db.String, nullable = False)
     serialize_rules = ['-transactions.book']
     transactions= db.relationshipp("Transaction", back_populates= "book")
+
+    @validates('title')
+    def validate_title(self, key, title):
+        if title != str:
+            raise AttributeError('Invalid Title')
+        return title
