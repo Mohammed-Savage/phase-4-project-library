@@ -33,7 +33,7 @@ class Member(db.Model, SerializerMixin):
     def validate_title(self, key, name):
         for char in name:
             if not (("A" <= char and char <= "Z") or ("a" <= char and char <= "z") or (char == " ")):
-              raise AttributeError('Invalid Name')
+                raise AttributeError('Invalid Name')
             return name
 
 class Books(db.Model, SerializerMixin):
@@ -42,6 +42,7 @@ class Books(db.Model, SerializerMixin):
     author = db.Column(db.String, nullable = False)
     serialize_rules = ['-transactions.book']
     transactions= db.relationshipp("Transaction", back_populates= "book")
+    image = db.Column(db.String, nullable = False)
 
     @validates('title')
     def validate_title(self, key, title):
