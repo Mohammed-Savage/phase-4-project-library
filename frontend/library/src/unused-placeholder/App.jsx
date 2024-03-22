@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+/////////////////////////////////////////////////////////////////////////////////////////
+// this is the placeholder app when run the command 'npm init vite', do NOT touch this //
+/////////////////////////////////////////////////////////////////////////////////////////
+
 function App() {
   const [count, setCount] = useState(0)
 
