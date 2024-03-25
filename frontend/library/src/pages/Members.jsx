@@ -24,9 +24,14 @@ const Members = () => {
     <>
      <NavBar/>
      <div className="container">
-        <div className="member-card">
+      {members.map((member) =>(
+        <div key={member.id} style={{border:"1px solid"}}>
+          {member.name}
+          {member.email}
+          {member.outstanding_balance}
 
         </div>
+      ))}
      </div>
     </>
   );
