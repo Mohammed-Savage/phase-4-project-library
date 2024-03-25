@@ -28,13 +28,13 @@ const Books = () => {
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {books.map((book) => (
             <div key={book.id} style={{border:"1px solid", margin:"5px"}}>
-              <h1>{book.title} - {book.subtitle}</h1>
+              <h1 style={{textAlign:"center"}}>{book.title}</h1>
+              <h3 style={{textAlign:"center"}}>{book.subtitle}</h3>
               <img
               className="book-covers"
               src={book.image}
-            //   alt={book.title}
-            //   height="400px"
-            //   width="300px"
+              alt={book.title}
+             style={{height:"400px", width: "350px", marginLeft:"70px"}}
               />
               <ul>
                 <li>ISBN: {book.isbn}</li>

@@ -104,6 +104,12 @@
             "name": "Tiffany",
             "email": "tiffanyman19@gmail.com",
             "outstanding_balance": 7.50
+        },
+        {
+            "id": 2,
+            "name":"Austin",
+            "email": "austin.rivera.24@aol.com",
+            "outstanding_balance": 3.50
         }
     ],
     "transactions":[
