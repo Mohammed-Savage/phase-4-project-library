@@ -1,7 +1,8 @@
 import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
 
-const Members = () => {
+export default function MemberPage() {
+
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
@@ -22,19 +23,17 @@ const Members = () => {
 
   return (
     <>
-     <NavBar/>
-     <div className="container">
-      {members.map((member) =>(
-        <div key={member.id} style={{border:"1px solid"}}>
-          {member.name}
-          {member.email}
-          {member.outstanding_balance}
+      <NavBar />
+      <div className="container">
+        {members.map((member) => (
+          <div key={member.id} style={{ border: "1px solid" }}>
+            {member.name}
+            {member.email}
+            {member.outstanding_balance}
 
-        </div>
-      ))}
-     </div>
+          </div>
+        ))}
+      </div>
     </>
-  );
+  )
 };
-
-export default Members;

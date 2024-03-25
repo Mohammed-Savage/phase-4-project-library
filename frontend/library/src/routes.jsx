@@ -1,26 +1,26 @@
-import Home from "./pages/Home.jsx"
-import ErrorPage from "./pages/Error.jsx";
-import Books from "./pages/Books.jsx";
-import Members from "./pages/Members.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import BookPage from "./pages/BookPage.jsx";
+import MemberPage from "./pages/MemberPage.jsx";
 
 const routes = [
 
     // Home page
     {
         path: "/",
-        element: <Home></Home>
+        element: <HomePage></HomePage>
     },
 
     // Books page
     {
         path: "/books",
-        element: <Books></Books> // 
+        element: <BookPage></BookPage> // 
     },
 
     // Members page
     {
         path: "/members",
-        element: <Members></Members> // 
+        element: <MemberPage></MemberPage> // 
     },
 
     //appear whenever the url is different from the constructed routes
