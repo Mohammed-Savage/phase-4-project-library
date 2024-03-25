@@ -1,3 +1,10 @@
+import NavBar from "../components/NavBar";
+
 export default function ErrorPage() {
-    return <h1>Oops! Looks like something went wrong.</h1>
+  return (
+    <>
+      <NavBar></NavBar>
+      <h1>Who are you and why are you here?</h1>
+    </>
+  );
 }
