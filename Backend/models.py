@@ -16,7 +16,7 @@ class Transaction(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key = True)
     isbn = db.Column(db.String, db.ForeignKey("books.isbn"))
     member_id = db.Column(db.String, db.ForeignKey("members.id"))
-    burrowed_on = db.Column(db.String, nullable = False)
+    borrowed_on = db.Column(db.String, nullable = False)
     fee_per_day = db.Column(db.String, nullable = False)
     serialize_rules = ['-book.transactions','-member.transactions'] 
     book = db.relationship("Books", back_populates='transactions')
