@@ -20,10 +20,14 @@ export default function BookCard({ books }) {
                         className="book-covers"
                         src={book.image}
                         alt={book.title}
-                        // height="400px"
-                        // width="300px"
+                        onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = "./image/fallback.gif";
+                        }}
+                    // height="400px"
+                    // width="300px"
                     />
-                    <br/>
+                    <br />
                     <button
                         onClick={() => toggleCheckedOut(book.id)}
                         style={{

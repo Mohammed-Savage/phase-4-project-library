@@ -1,4 +1,4 @@
-export default function Search({ query, onUpdateQuery, onUpdateSearch }) {
+export default function SearchBar({ query, onUpdateQuery, onUpdateSearch }) {
     return (
         <>
             <select onChange={onUpdateSearch} style={{alignItems:"center"}}>
