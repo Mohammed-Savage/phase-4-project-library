@@ -6,10 +6,14 @@ export default function HomePage() {
             <header>
                 <NavBar></NavBar>
             </header>
-            <main id="home">
+            <div id="home" style={{height:"500px"}}>
                 <h1 id="home-title">The Duke's Archives</h1>
                 <h2 id="authors">By Austin, Mohammed, Tiffany, and Vinh </h2>
-            </main>
+            </div>
+            <footer style={{borderTop:"1px solid"}}>
+                <div className="frontend" style={{textAlign:"left"}}><h2>Frontend Gia Vinh Nguyen & Austin Rivera</h2></div>
+                <div className="backend" style={{textAlign:"right"}}><h2>Tiffany Man & Mohammed Omar Backend</h2></div>
+            </footer>
         </>
     )
 }

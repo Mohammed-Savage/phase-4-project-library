@@ -110,6 +110,18 @@
             "name":"Austin",
             "email": "austin.rivera.24@aol.com",
             "outstanding_balance": 3.50
+        },
+        {
+            "id": 3,
+            "name": "Vinh",
+            "email": "fakevinnyemail@fake.com",
+            "outstanding_balance": 19.50
+        },
+        {
+            "id": 4,
+            "name": "Mohammed",
+            "email": "fakemomoemail@fake.com",
+            "outstanding_balance": 420.69
         }
     ],
     "transactions":[

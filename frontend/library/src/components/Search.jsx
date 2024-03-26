@@ -1,7 +1,7 @@
 export default function Search({ query, onUpdateQuery, onUpdateSearch }) {
     return (
         <>
-            <select onChange={onUpdateSearch}>
+            <select onChange={onUpdateSearch} style={{alignItems:"center"}}>
                 <option value="title" > Title </option>
                 <option value="author" > Author </option>
                 <option value="isbn" > ISBN </option>
