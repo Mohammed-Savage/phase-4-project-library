@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from models import db, Transaction, Member, Books
 import json
 from flask_cors import CORS
+from flask_bcrypt import Bcrypt
 
 # Here, we're initializing the Database for our use purposes.
 app = Flask(__name__)
@@ -17,6 +18,10 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 # Meow that we've imported our modules and initialized our database, we can begin scripting our routes.
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "this is a placeholder for the API."})
+
 @app.get("/books")
 def get_books():
     # Following this route will lead us directly to all of the books in our table.
