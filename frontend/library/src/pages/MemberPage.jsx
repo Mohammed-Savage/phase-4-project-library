@@ -18,19 +18,19 @@ export default function MemberPage() {
       }
     }
 
-    fetchData(); // Call the async function
-  }, []); // Empty dependency array to run only once
+    fetchData();
+  }, []); 
 
+  
   return (
     <>
       <NavBar />
-      <div className="container">
+      <div className="container" style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr"}}>
         {members.map((member) => (
-          <div key={member.id} style={{ border: "1px solid" }}>
-            {member.name}
-            {member.email}
-            {member.outstanding_balance}
-
+          <div className="member-card" key={member.id} style={{ border: "1px solid", borderRadius:"25px", margin:"5px", height: "200px", width:"200px"}}>
+            <p style={{textAlign:"center"}}>Name: {member.name}</p>
+            <p style={{textAlign:"center"}}>Email: {member.email}</p>
+            <p style={{textAlign:"center"}}>Outstanding Balance: ${member.outstanding_balance}</p>
           </div>
         ))}
       </div>
