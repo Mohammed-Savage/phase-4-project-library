@@ -14,7 +14,7 @@ db = SQLAlchemy(metadata=metadata)
 
 class Transaction(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key = True)
-    isbn = db.Column(db.String, db.ForeignKey("books.isbn"))
+    book_id = db.Column(db.String, db.ForeignKey("books.id"))
     member_id = db.Column(db.String, db.ForeignKey("members.id"))
     borrowed_on = db.Column(db.String, nullable = False)
     fee_per_day = db.Column(db.String, nullable = False)
@@ -27,7 +27,7 @@ class Member(db.Model, SerializerMixin):
     name = db.Column(db.String, nullable = False)
     email = db.Column(db.String, nullable = False)
     serialize_rules = ['-transactions.member']
-    transactions= db.relationshipp("Transaction", back_populates= "member")
+    transactions= db.relationship("Transaction", back_populates= "member")
 
     @validates('name')
     def validate_title(self, key, name):
@@ -37,11 +37,12 @@ class Member(db.Model, SerializerMixin):
             return name
 
 class Books(db.Model, SerializerMixin):
-    isbn = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
+    isbn = db.Column(db.String, nullable = False)
     title = db.Column(db.String, nullable = False)
     author = db.Column(db.String, nullable = False)
     serialize_rules = ['-transactions.book']
-    transactions= db.relationshipp("Transaction", back_populates= "book")
+    transactions= db.relationship("Transaction", back_populates= "book")
     image = db.Column(db.String, nullable = False)
 
     @validates('title')
