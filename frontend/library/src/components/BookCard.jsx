@@ -20,6 +20,7 @@ export default function BookCard({ books }) {
                         className="book-covers"
                         src={book.image}
                         alt={book.title}
+                        // onError run the fallback image when the default image doesn't load
                         onError={({ currentTarget }) => {
                             currentTarget.onerror = null; // prevents looping
                             currentTarget.src = "./image/fallback.gif";
