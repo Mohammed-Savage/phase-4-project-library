@@ -106,7 +106,7 @@ useEffect(() => {
     }
   }
   fetchData(); // Call the async function
-}, []); // Empty dependency array to run only once
+}, [books]); // whenever the books got changed, re-render everthing
 
 // POST method
 function onAddBook(event){
@@ -117,7 +117,7 @@ function onAddBook(event){
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
-    body: JSON.stringify(newBook)
+    body: JSON.stringify(newBook) // convert newBook from js to json for the db.json to store data
   }),then(response => response.json())
 }
 
