@@ -23,7 +23,7 @@ const [newBook, setNewBook] = useState({
   author:"",
   published:"",
   publisher:"",
-  pages:0,
+  pages:null,
   description:"",
   website:"",
   image: ""
@@ -129,10 +129,10 @@ function onAddBook(event){
   return (
     <>
       <NavBar />
+      
+      <SearchBar query={query} onUpdateQuery={onUpdateQuery} onUpdateSearch={onUpdateSearch}/>
 
       <SubmissionForm onAddBook={onAddBook} onChangeNewBook={onChangeNewBook} newBook={newBook}/>
-
-      <SearchBar query={query} onUpdateQuery={onUpdateQuery} onUpdateSearch={onUpdateSearch}/>
 
       <BookCard books={filteredBooks}/>
     </>
