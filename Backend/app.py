@@ -26,7 +26,7 @@ def home():
     return jsonify({"message": "Welcome to our library homepage."})
 
 
-@app.get("/books")
+@app.get("/api/books")
 def get_books():
     # Following this route will lead us directly to all of the books in our table.
     books = Books.query.all()
@@ -39,7 +39,7 @@ def get_books():
 
 
 # Meow that we've set up our initial route in order to summon the entire library of books, we're going to go ahead and set up our route to find books by id.
-@app.get("/books/<int:id>")
+@app.get("/api/books/<int:id>")
 def get_book_by_id(id):
     book = db.session.get(Books, id)
     if not book:
@@ -48,13 +48,13 @@ def get_book_by_id(id):
 
 
 # The following code is the same as the aforementioned code, it's just streamlined.
-@app.route("/members", methods=["GET"])
+@app.route("/api/members", methods=["GET"])
 def get_members():
     members = Member.query.all()
     return jsonify([member.to_dict() for member in members])
 
 
-@app.route("/members/<int:member_id>", methods=["GET"])
+@app.route("/api/members/<int:member_id>", methods=["GET"])
 def get_member(member_id):
     member = Member.query.get(member_id)
     if member is None:
@@ -62,14 +62,14 @@ def get_member(member_id):
     return jsonify(member.to_dict()), 200
 
 
-@app.route("/transactions", methods=["GET"])
+@app.route("/api/transactions", methods=["GET"])
 def get_transactions():
     transactions = Transaction.query.all()
     return jsonify([transaction.to_dict() for transaction in transactions])
 
 
 # We're making minor changes in the routing code to reflect the ability to execute the CrUD of CRUD.
-@app.route("/books", methods=["POST"])
+@app.route("/api/books", methods=["POST"])
 def add_book():
     data = request.get_json()
     new_book = Books(
@@ -83,7 +83,7 @@ def add_book():
     return jsonify(new_book.to_dict()), 201
 
 
-@app.route("/members/<int:member_id>", methods=["DELETE"])
+@app.route("/api/members/<int:member_id>", methods=["DELETE"])
 def delete_member(member_id):
     member = Member.query.get(member_id)
     if member is None:
@@ -93,7 +93,7 @@ def delete_member(member_id):
     return jsonify({"message": "Member successfully deleted"}), 200
 
 
-@app.route("/transactions/<int:transaction_id>", methods=["PATCH"])
+@app.route("/api/transactions/<int:transaction_id>", methods=["PATCH"])
 def update_transaction(transaction_id):
     data = request.get_json()
     transaction = Transaction.query.get(transaction_id)
