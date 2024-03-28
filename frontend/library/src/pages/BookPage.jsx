@@ -96,6 +96,7 @@ switch(search)
 useEffect(() => {
   async function fetchData() {
     try {
+      // TO DO: Front-end devs, please replace the hard-coded local host instances of fetch addresses with the respective routes. For this one it would be "books".
       const response = await fetch("http://localhost:3000/books");
       const data = await response.json(); // Convert "pure-string" json into a readable javascript for the computer to process 
       setBooks(data); // Update state with fetched data
