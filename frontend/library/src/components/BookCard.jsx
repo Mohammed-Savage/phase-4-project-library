@@ -14,9 +14,10 @@ export default function BookCard({ books }) {
     return (
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {books.map((book) => (
-                <div key={book.id} style={{ border: "1px solid", margin: "5px" }}>
+                <div key={book.id} style={{ border: "1px solid", margin: "5px", minHeight:"500px", minWidth:"400px"}}>
                     <h1>{book.title} - {book.subtitle}</h1>
                     <img
+                    style={{height:"400px", width:"100%"}}
                         className="book-covers"
                         src={book.image}
                         alt={book.title}
@@ -25,8 +26,6 @@ export default function BookCard({ books }) {
                             currentTarget.onerror = null; // prevents looping
                             currentTarget.src = "./image/fallback.gif";
                         }}
-                    // height="400px"
-                    // width="300px"
                     />
                     <br />
                     <button
@@ -38,7 +37,8 @@ export default function BookCard({ books }) {
                             border: 'none',
                             borderRadius: '5px',
                             cursor: 'pointer',
-                            flex: "1"
+                            flex: "1",
+                            marginLeft:"200px"
                         }}
                     >
                         {checkedOutBooks.includes(book.id) ? 'Checked Out' : 'Available'}
